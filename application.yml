@@ -10,9 +10,10 @@ foo: baz
 
 JwtConfig:
   Audience:
+    Aud: Phong Nhu
     Secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
-    Iss: http://kikker.infodation.nl	
-	Aud: PhongNhu
+    Iss: http://kikker.infodation.nl
+      
 	
 ---
 spring:
