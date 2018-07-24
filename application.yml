@@ -1,6 +1,6 @@
 info:
   description: Spring Cloud Samples
-  url: https://github.com/spring-cloud-samples
+  url: https://github.com/tirom/HelloWorld2
 eureka:
   client:
     serviceUrl:
@@ -8,6 +8,11 @@ eureka:
       
 foo: baz
 
+JwtConfig:
+	Audience:
+		Secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
+		Iss: http://kikker.infodation.nl
+		Aud: Phong Nhu
 ---
 spring:
   profiles: cloud
