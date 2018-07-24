@@ -7,11 +7,11 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
       
 foo: baz
-JwtConfig:
-  Audience:
-    Aud: Phong Nhu
-    Secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
-    Iss: http://kikker.infodation.nl	
+jwtConfig:
+  audience:
+    aud: Phong Nhu
+    secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
+    iss: http://kikker.infodation.nl	
 ---
 spring:
   profiles: cloud
