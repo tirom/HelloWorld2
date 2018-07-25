@@ -5,7 +5,7 @@ eureka:
     hostname: localhost
   client:
     serviceUrl: http://localhost:8761/eureka/
-    shouldFetchRegistry: false
+    shouldFetchRegistry: true
     validateCertificates: false
     registryFetchIntervalSeconds: 10
     instanceInfoReplicationIntervalSeconds: 10
