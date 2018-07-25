@@ -1,5 +1,5 @@
 mysql:
   client:
     sslmode: none
-    ConnectionString: Server=localhost;Database=test;Uid=root;Pwd=root;port=3316;    
+    ConnectionString: Server=localhost;Database=steeltoe;Uid=root;Pwd=root;port=3316;    
 
