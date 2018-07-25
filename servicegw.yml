@@ -1,0 +1,12 @@
+eureka:
+  instance:
+    port: 9000
+    instanceId: localhost:9000
+    hostname: localhost
+  client:
+    serviceUrl: http://localhost:8761/eureka/
+    shouldFetchRegistry: false
+    validateCertificates: false
+    registryFetchIntervalSeconds: 10
+    instanceInfoReplicationIntervalSeconds: 10
+
