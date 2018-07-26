@@ -10,7 +10,7 @@ foo: baz
 jwtConfig:
   audience:
     aud: Phong Nhu
-    secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
+    secret: abc134324
     iss: http://kikker.infodation.nl
 ---
 spring:
