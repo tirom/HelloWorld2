@@ -1,6 +1,7 @@
 eureka:
   instance:
-    instanceId: 192.168.2.192:5000
+    port: 5001
+    instanceId: 192.168.2.192:5001
     hostName: 192.168.2.192
     healthCheckUrlPath: /api/fortunes/healthcheck
     statusPageUrlPath: /api/fortunes/info
