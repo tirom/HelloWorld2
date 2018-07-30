@@ -1,8 +1,14 @@
 eureka:
   instance:
-    port: 5000  
+    port: 5000
+    instanceId: 192.168.2.192:5000
+    hostName: 192.168.2.192
+    healthCheckUrlPath: /api/fortunes/healthcheck
+    statusPageUrlPath: /api/fortunes/info
   client:
     serviceUrl: http://localhost:8761/eureka/
-    shouldFetchRegistry: false
+    shouldFetchRegistry: true
     validateCertificates: false
+    healthcheck:
+      enabled: true
 
