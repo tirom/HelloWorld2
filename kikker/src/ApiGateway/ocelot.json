@@ -1,0 +1,74 @@
+﻿{
+	"ReRoutes": [
+		{
+			"DownstreamPathTemplate": "/api/auth",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/auth",
+			"UpstreamHttpMethod": [ "Get" ],
+			"UseServiceDiscovery": true,
+			"ServiceName": "AuthServer"
+		},
+		{
+			"DownstreamPathTemplate": "/api/noauth",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/noauth",
+			"UpstreamHttpMethod": [ "Get" ],
+			"UseServiceDiscovery": true,
+			"ServiceName": "NCORE-RAT2-NOAUTH"
+		},
+		{
+			"DownstreamPathTemplate": "/api/Category2",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/customer",
+			"UpstreamHttpMethod": [ "Get" ],
+			"UseServiceDiscovery": true,
+			"ServiceName": "NCORE-RAT2-GUEST",
+
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "TestKey",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Category2",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/admin",
+			"UpstreamHttpMethod": [ "Get" ],
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			},
+
+			"UseServiceDiscovery": true,
+			"ServiceName": "NCORE-RAT2",
+
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "TestKey",
+				"AllowedScopes": []
+			}
+		},
+			{
+				"DownstreamPathTemplate": "/api/category",
+				"DownstreamScheme": "http",
+				"UpstreamPathTemplate": "/category",
+				"UseServiceDiscovery": true,
+				"ServiceName": "simpleservice",
+				"UpstreamHttpMethod": [ "Get" ],
+							"LoadBalancerOptions": {
+								"Type": "RoundRobin"
+							}
+				//			,
+
+				//"QoSOptions": {
+				//	"ExceptionsAllowedBeforeBreaking": 3,
+				//	"DurationOfBreak": 10000,
+				//	"TimeoutValue": 5000
+				//},
+				//"FileCacheOptions": { "TtlSeconds": 15 }
+			}
+	],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration",
+    "ServiceDiscoveryProvider": { "Type": "Eureka" }
+  }
+}

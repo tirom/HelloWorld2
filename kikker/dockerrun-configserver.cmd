@@ -1,0 +1,1 @@
+docker run -p 8888:8888 -v E:\Learning\netcore\git\config-repo:/steeltoe/config-repo --rm -it steeltoeoss/servers:configserver1.0-linux
