@@ -11,19 +11,20 @@ namespace AuthServer.Authorization
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, RoleRequirement requirement)
         {
-            if (!context.User.HasClaim(c => c.Type == ClaimTypes.Role))
+            //if (!context.User.HasClaim(c => c.Type == ClaimTypes.Role))
+            if (!context.User.HasClaim(c => c.Type == "auth"))
             {
                 return Task.CompletedTask;
             }
             var role = context.User
-            .FindFirst(claim => claim.Type == ClaimTypes.Role).Value.ToLower();
+            .FindFirst(claim => claim.Type == "auth").Value;
             //check admin role
-            if (role == "administrator")
+            if (role.Contains("ROLE_ADMIN"))
             {
                 context.Succeed(requirement);
             }
             //check user role
-            if (role == requirement.RoleName.ToLower())
+            if (role.Contains(requirement.RoleName))
             {
                 context.Succeed(requirement);
             }

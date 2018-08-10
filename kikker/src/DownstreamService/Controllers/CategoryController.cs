@@ -19,7 +19,7 @@ namespace DownstreamService.Controllers
             if (identity != null)
             {
                 IEnumerable<Claim> claims = identity.Claims;
-                return Json(claims.Where(c => s.Contains(c.Type.ToLower())).ToDictionary(c => c.Type, x => x.Value));
+                return Json(claims/*.Where(c => s.Contains(c.Type.ToLower()))*/.ToDictionary(c => c.Type, x => x.Value));
             }
             return null;
         }

@@ -1,2 +1,14 @@
 version: '3.2'
 
+
+services:
+  mysql:
+    environment:
+      - MYSQL_SERVER_NAME=kikker_mysql
+
+  simpleservice_docker:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

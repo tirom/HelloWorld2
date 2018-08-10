@@ -11,8 +11,7 @@
     using Microsoft.IdentityModel.Tokens;
     using Ocelot.DependencyInjection;
     using Ocelot.Middleware;
-	using Serilog;
-	using System;
+    using System;
     using System.Text;
 
     public class Startup
@@ -20,7 +19,17 @@
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }       
+        }
+
+        //public Startup(IHostingEnvironment env)
+        //{
+        //    var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder();
+        //    builder.SetBasePath(env.ContentRootPath)
+        //            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        //           .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+        //           .AddEnvironmentVariables();
+        //    Configuration = builder.Build();
+        //}
 
         public IConfiguration Configuration { get; }
 
@@ -41,10 +50,10 @@
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = signingKey,
-                ValidateIssuer = true,
-                ValidIssuer = Iss,
-                ValidateAudience = true,
-                ValidAudience = Aud,
+                ValidateIssuer = false,
+                //ValidIssuer = Iss,
+                ValidateAudience = false,
+                //ValidAudience = Aud,
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.Zero,
                 RequireExpirationTime = true,
@@ -69,8 +78,7 @@
         public async void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseAuthentication();
-			loggerFactory.AddSerilog();
-			await app.UseOcelot();
+            await app.UseOcelot();
         }
     }
 }

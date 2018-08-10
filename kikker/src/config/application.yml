@@ -21,6 +21,6 @@ redis:
 logstash:
   uri: http://localhost:8080
 audience:
-  secret: Y2F0Y2hlciUyMHdvbmclMjBsb3ZlJTIwLm5ldA==
+  secret: my-secret-token-to-change-in-production
   iss: http://www.c-sharpcorner.com/members/catcher-wong
   aud: Infodation

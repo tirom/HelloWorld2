@@ -1,21 +1,21 @@
 ﻿{
 	"ReRoutes": [
-		{
-			"DownstreamPathTemplate": "/api/auth",
-			"DownstreamScheme": "http",
-			"UpstreamPathTemplate": "/auth",
-			"UpstreamHttpMethod": [ "Get" ],
-			"UseServiceDiscovery": true,
-			"ServiceName": "AuthServer"
-		},
-		{
-			"DownstreamPathTemplate": "/api/noauth",
-			"DownstreamScheme": "http",
-			"UpstreamPathTemplate": "/noauth",
-			"UpstreamHttpMethod": [ "Get" ],
-			"UseServiceDiscovery": true,
-			"ServiceName": "NCORE-RAT2-NOAUTH"
-		},
+		//{
+		//	"DownstreamPathTemplate": "/api/auth",
+		//	"DownstreamScheme": "http",
+		//	"UpstreamPathTemplate": "/auth",
+		//	"UpstreamHttpMethod": [ "Get" ],
+		//	"UseServiceDiscovery": true,
+		//	"ServiceName": "AuthServer"
+		//},
+		//{
+		//	"DownstreamPathTemplate": "/api/noauth",
+		//	"DownstreamScheme": "http",
+		//	"UpstreamPathTemplate": "/noauth",
+		//	"UpstreamHttpMethod": [ "Get" ],
+		//	"UseServiceDiscovery": true,
+		//	"ServiceName": "NCORE-RAT2-NOAUTH"
+		//},
 		{
 			"DownstreamPathTemplate": "/api/Category2",
 			"DownstreamScheme": "http",

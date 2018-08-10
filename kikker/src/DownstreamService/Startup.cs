@@ -44,17 +44,17 @@ namespace DownstreamService
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Secret));
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = signingKey,
-                ValidateIssuer = true,
-                ValidIssuer = Iss,
-                ValidateAudience = true,
-                ValidAudience = Aud,
-                ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero,
-                RequireExpirationTime = true,
-                
-            };
+				ValidateIssuerSigningKey = true,
+				IssuerSigningKey = signingKey,
+				ValidateIssuer = false,
+				//ValidIssuer = Iss,
+				ValidateAudience = false,
+				//ValidAudience = Aud,
+				ValidateLifetime = true,
+				ClockSkew = TimeSpan.Zero,
+				RequireExpirationTime = true,
+
+			};
 
             services.AddAuthentication(options =>
             {
@@ -73,7 +73,7 @@ namespace DownstreamService
                 //options.AddPolicy("UserRole",
                 //       policy => policy.RequireRole("Administrator"));
                 options.AddPolicy("UserRole",
-                           policy => policy.Requirements.Add(new RoleRequirement("administrator")));
+                           policy => policy.Requirements.Add(new RoleRequirement("ROLE_ADMIN")));
             });
             services.AddSingleton<IAuthorizationHandler, RoleHandler>();
             services.AddDiscoveryClient(Configuration);

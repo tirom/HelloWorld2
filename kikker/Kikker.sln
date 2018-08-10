@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleService", "src\Simple
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{531D07B7-7D89-496F-8A0D-102EB39C07BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer", "src\AuthServer\AuthServer.csproj", "{FF23DD85-77EA-4BD5-A899-CD16AB1CCF83}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownstreamService", "src\DownstreamService\DownstreamService.csproj", "{66449D5D-0A2D-453D-8B30-CA18F439FB7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "src\ApiGateway\ApiGateway.csproj", "{90FE80D9-D8D3-431D-8B51-264C36F9F345}"
@@ -29,10 +27,6 @@ Global
 		{531D07B7-7D89-496F-8A0D-102EB39C07BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{531D07B7-7D89-496F-8A0D-102EB39C07BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{531D07B7-7D89-496F-8A0D-102EB39C07BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF23DD85-77EA-4BD5-A899-CD16AB1CCF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF23DD85-77EA-4BD5-A899-CD16AB1CCF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF23DD85-77EA-4BD5-A899-CD16AB1CCF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF23DD85-77EA-4BD5-A899-CD16AB1CCF83}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU

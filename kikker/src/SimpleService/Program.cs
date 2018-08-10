@@ -50,6 +50,7 @@ namespace DownstreamService
 			try
 			{
 				var connectionString = config.GetValue<string>("mysql:connectionString") ?? string.Empty;
+				Console.WriteLine($"Script path {Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}" + @"\Scripts");
 				var upgrader =
 					DeployChanges.To
 						.MySqlDatabase(connectionString)
@@ -86,8 +87,8 @@ namespace DownstreamService
 		}
 
 		private static void InitLogger(IConfiguration config)
-		{
-			string logstashUrl = config.GetValue<string>("Logstash:Uri") ?? string.Empty;
+		{			
+			string logstashUrl = config.GetValue<string>("Logstash:Uri") ?? string.Empty;			
 			Log.Logger = new LoggerConfiguration()
 				.MinimumLevel.Debug()
 				.MinimumLevel.Override("Microsoft", LogEventLevel.Information)

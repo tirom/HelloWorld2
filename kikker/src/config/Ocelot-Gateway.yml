@@ -1,3 +1,5 @@
-eureka:  
+eureka:
+  client:
+    shouldFetchRegistry: true  
   instance:
     port: 5000
