@@ -1,8 +1,9 @@
+machinename: eureka
 eureka:
   client:
     shouldFetchRegistry: true
     validateCertificates: false
   instance:
-    port: 5001
+    port: 5002
 mysql:
-  connectionString: Server=localhost;Database=kikker;Uid=user;Pwd=123;
+  connectionString: Server=mysql;Database=kikker;Uid=user;Pwd=123;

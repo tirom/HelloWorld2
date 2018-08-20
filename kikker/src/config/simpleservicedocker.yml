@@ -1,0 +1,9 @@
+serverName: localhost
+eureka:
+  client:
+    shouldFetchRegistry: true
+    validateCertificates: false
+  instance:
+    port: 5101
+mysql:
+  connectionString: Server=mysql;Database=kikker;Uid=user;Pwd=123;

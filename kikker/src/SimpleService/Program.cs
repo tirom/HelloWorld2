@@ -31,7 +31,7 @@ namespace DownstreamService
 			var port = config.GetValue<string>("Eureka:Instance:Port") ?? string.Empty;
 			if (MigrateDb(config) == 0)
 			{				
-				var listeningUrl = $"http://{Environment.MachineName}:{port}";
+				var listeningUrl = $"http://*:{port}";
 				Log.Information($"Service {SERVICE_NAME} try to listen on {listeningUrl}");				
 
 				BuildWebHost(args, config, listeningUrl).Run();				
