@@ -3,12 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using DbUp;
-//using DbUp;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using Serilog.Events;
+using Serilog.Sinks.Elasticsearch;
 using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace DownstreamService
@@ -41,8 +40,15 @@ namespace DownstreamService
 
 		public static IWebHost BuildWebHost(string[] args, IConfiguration config, string listeningUrl) =>
 			WebHost.CreateDefaultBuilder(args)
-				.UseUrls(listeningUrl)
-				.UseConfiguration(config)				
+				//.UseUrls(listeningUrl)
+				.UseConfiguration(config)
+				.UseSerilog((ctx, conf) =>
+				{
+					conf
+						.MinimumLevel.Information()
+						.Enrich.FromLogContext()
+						.WriteTo.Console(new ElasticsearchJsonFormatter());
+				})
 				.UseStartup<Startup>()				
 				.Build();
 
@@ -88,17 +94,17 @@ namespace DownstreamService
 			}
 		}
 
-		private static void InitLogger(IConfiguration config)
-		{			
-			string logstashUrl = config.GetValue<string>("Logstash:Uri") ?? string.Empty;
-			Console.WriteLine($"Logstash url {logstashUrl}");
-			Log.Logger = new LoggerConfiguration()
-				.MinimumLevel.Debug()
-				.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-				.Enrich.FromLogContext()
-				.WriteTo.Console()
-				.WriteTo.Http(logstashUrl)
-				.CreateLogger();
-		}			
+		//private static void InitLogger(IConfiguration config)
+		//{			
+		//	string logstashUrl = config.GetValue<string>("Logstash:Uri") ?? string.Empty;
+		//	Console.WriteLine($"Logstash url {logstashUrl}");
+		//	Log.Logger = new LoggerConfiguration()
+		//		.MinimumLevel.Debug()
+		//		.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+		//		.Enrich.FromLogContext()
+		//		.WriteTo.Console()
+		//		.WriteTo.Http(logstashUrl)
+		//		.CreateLogger();
+		//}			
     }
 }

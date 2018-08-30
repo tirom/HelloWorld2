@@ -19,7 +19,7 @@ spec:
         io.kompose.service: webapitest
     spec:
       containers:
-      - image: kikker_webapitest
+      - image: infodation.azurecr.io/phongnhu/webapitest:latest
         name: webapitest
         resources: {}
       restartPolicy: Always

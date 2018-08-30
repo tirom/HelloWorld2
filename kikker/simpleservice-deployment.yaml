@@ -19,10 +19,8 @@ spec:
         io.kompose.service: simpleservice
     spec:
       containers:
-      - image: kikker-simpleservice
+      - image: infodation.azurecr.io/phongnhu/simpleservice:latest
         name: simpleservice
-        ports:
-        - containerPort: 80
         resources: {}
       restartPolicy: Always
 status: {}

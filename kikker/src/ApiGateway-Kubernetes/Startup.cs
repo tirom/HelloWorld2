@@ -1,8 +1,8 @@
 ﻿namespace APIGateway
 {
     using ApiGateway.Model;
-    using CacheManager.Core;
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    //using CacheManager.Core;
+    //using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;

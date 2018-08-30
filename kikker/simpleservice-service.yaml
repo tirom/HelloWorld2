@@ -11,8 +11,8 @@ metadata:
   name: simpleservice
 spec:
   ports:
-  - name: "5101"
-    port: 5101
+  - name: "5002"
+    port: 5002
     targetPort: 80
   selector:
     io.kompose.service: simpleservice

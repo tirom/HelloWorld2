@@ -34,7 +34,7 @@ namespace WebTest.Tests
 
 		private List<string> GetTestValues()
 		{
-			return new List<string> { "value3", "value4" };
+			return new List<string> { "value5", "value4" };
 		}
 	}
 }

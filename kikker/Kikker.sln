@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleService", "src\SimpleService\SimpleService.csproj", "{8772A93B-0258-47DA-A0C9-0D8B0C51354E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownstreamService", "src\DownstreamService\DownstreamService.csproj", "{66449D5D-0A2D-453D-8B30-CA18F439FB7F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "src\ApiGateway\ApiGateway.csproj", "{90FE80D9-D8D3-431D-8B51-264C36F9F345}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownstreamService3", "src\DownstreamService3\DownstreamService3.csproj", "{CFD704CD-2186-4934-AE05-8CEED230C7FC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleService_Docker", "src\SimpleService_Docker\SimpleService_Docker.csproj", "{F6063F07-9996-403A-9C7A-EF67B7A135F6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiTest", "src\WebApiTest\WebApiTest.csproj", "{A64E74E3-25D9-43C0-A2AD-E74329F8177B}"
@@ -35,22 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8772A93B-0258-47DA-A0C9-0D8B0C51354E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8772A93B-0258-47DA-A0C9-0D8B0C51354E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8772A93B-0258-47DA-A0C9-0D8B0C51354E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8772A93B-0258-47DA-A0C9-0D8B0C51354E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66449D5D-0A2D-453D-8B30-CA18F439FB7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90FE80D9-D8D3-431D-8B51-264C36F9F345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90FE80D9-D8D3-431D-8B51-264C36F9F345}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90FE80D9-D8D3-431D-8B51-264C36F9F345}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90FE80D9-D8D3-431D-8B51-264C36F9F345}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFD704CD-2186-4934-AE05-8CEED230C7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFD704CD-2186-4934-AE05-8CEED230C7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFD704CD-2186-4934-AE05-8CEED230C7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFD704CD-2186-4934-AE05-8CEED230C7FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F6063F07-9996-403A-9C7A-EF67B7A135F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6063F07-9996-403A-9C7A-EF67B7A135F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6063F07-9996-403A-9C7A-EF67B7A135F6}.Release|Any CPU.ActiveCfg = Release|Any CPU

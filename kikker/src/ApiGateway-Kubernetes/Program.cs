@@ -5,10 +5,9 @@
 	using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
-    using Ocelot.DependencyInjection;
-    using Ocelot.Middleware;
-	//using Serilog;
-	//using Serilog.Events;
+   
+	using Serilog;
+	using Serilog.Sinks.Elasticsearch;	
 	using Steeltoe.Extensions.Configuration.ConfigServer;
 
     public class Program
@@ -37,7 +36,14 @@
                 })
                 .AddConfigServer()
                 .UseUrls("http://*:5000")
-                .UseStartup<APIGateway.Startup>()
+				.UseSerilog((ctx, conf) =>
+				{
+					conf
+						.MinimumLevel.Information()
+						.Enrich.FromLogContext()
+						.WriteTo.Console(new ElasticsearchJsonFormatter());
+				})
+				.UseStartup<APIGateway.Startup>()
                 .Build();
 
 		//private static void InitLogger(IConfiguration config)

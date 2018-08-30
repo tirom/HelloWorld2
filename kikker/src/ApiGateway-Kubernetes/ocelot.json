@@ -48,7 +48,7 @@
 				"DownstreamHostAndPorts": [
 						{
 							"Host": "simpleservice",
-							"Port": 5002
+							"Port": 80
 						}
 				],
 				"UpstreamPathTemplate": "/category",
@@ -69,7 +69,7 @@
 	],
   "GlobalConfiguration": {
     "RequestIdKey": "OcRequestId",
-    "AdministrationPath": "/administration",
-    "ServiceDiscoveryProvider": { "Type": "Eureka" }
+			"AdministrationPath": "/administration"
+				//,"ServiceDiscoveryProvider": { "Type": "Eureka" }
   }
 }

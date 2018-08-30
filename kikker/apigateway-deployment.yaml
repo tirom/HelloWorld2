@@ -19,7 +19,7 @@ spec:
         io.kompose.service: apigateway
     spec:
       containers:
-      - image: phongnhu/apigateway
+      - image: infodation.azurecr.io/phongnhu/apigateway:latest
         name: apigateway
         resources: {}
       restartPolicy: Always
