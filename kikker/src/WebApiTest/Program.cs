@@ -23,6 +23,7 @@ namespace WebApiTest
 						.Enrich.FromLogContext()
 						.WriteTo.Console(new ElasticsearchJsonFormatter());						
 				})
+			    //.UseUrls("http://localhost:8088")
 				.UseStartup<Startup>();
     }
 }

@@ -35,7 +35,7 @@
                         .AddEnvironmentVariables();
                 })
                 .AddConfigServer()
-                .UseUrls("http://*:5000")
+                //.UseUrls("http://*:5000")
 				.UseSerilog((ctx, conf) =>
 				{
 					conf

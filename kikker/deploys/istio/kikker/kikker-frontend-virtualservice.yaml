@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kikkergatewayvncluster
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - kikker-gateway-vncluster
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: kikkerfrontend
+        subset: v001
+        port:
+          number: 80

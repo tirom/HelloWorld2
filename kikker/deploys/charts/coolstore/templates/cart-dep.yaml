@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cart-v1
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cart
+        version: v1
+    spec:
+      containers:
+      - name: cart
+        image: {{.Values.image.imageRegistry}}/cs-cart-service:{{.Values.image.dockerTag}}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: Hosts__BasePath
+          value: /cart/
+        - name: Hosts__Externals__CurrentUri
+          value: {{ .Values.cartSettings.Hosts__Externals__CurrentUri }}
+        - name: Hosts__Externals__Auth__Uri
+          value: {{ .Values.cartSettings.Hosts__Externals__Auth__Uri }}
+        - name: Hosts__Externals__Catalog__Uri
+          value: {{ .Values.cartSettings.Hosts__Externals__Catalog__Uri }}
+        ports:
+        - containerPort: 5003
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5003
+          initialDelaySeconds: 10
+          periodSeconds: 5
+---

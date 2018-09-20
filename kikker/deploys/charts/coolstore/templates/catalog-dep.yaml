@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: catalog-v1
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: catalog
+        version: v1
+    spec:
+      containers:
+      - name: catalog
+        image: {{.Values.image.imageRegistry}}/cs-catalog-service:{{.Values.image.dockerTag}}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: BASE_PATH
+          value: /catalog/
+        - name: MONGO_DB_URL
+          value: mongodb://mongodb:27017/catalog
+        ports:
+        - containerPort: 5002
+      initContainers:
+      - name: init-mongodb
+        image: busybox
+        command: ["sh", "-c", "until nc -z mongodb 27017; do Waiting to connect to a database...; sleep 1; done;"]
+---

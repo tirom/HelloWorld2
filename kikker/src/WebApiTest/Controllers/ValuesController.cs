@@ -21,7 +21,7 @@ namespace WebApiTest.Controllers
 		[HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-			_logger.LogInformation("WebApiTest GET api/values");
+		_logger.LogInformation("WebApiTest GET api/values");
             return new string[] { "value1", "value2" };
         }
 

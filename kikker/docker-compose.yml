@@ -2,13 +2,13 @@ version: '3.0'
 
 services:  
 
-  config-server:
-    image: "steeltoeoss/configserver:1.3.2"
-    command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
-    volumes:
-      - ./src/config:/config
-    ports:
-      - "8888:8888"
+  # config-server:
+    # image: "steeltoeoss/configserver:1.3.2"
+    # command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
+    # volumes:
+      # - ./src/config:/config
+    # ports:
+      # - "8888:8888"
 
   #eureka:   
     #image: "steeltoeoss/eurekaserver:1.4.4"
@@ -67,26 +67,26 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: 123
 
-  simpleservice:
-    image: simpleservice
-    build:
-      context: .
-      dockerfile: src/SimpleService_Docker/Dockerfile
-    #ports:
-      #- "5101:80"
-    #expose:
-      #- "5101"
-    # volumes:
-      # - appbuild:/app
-      # - ./src/SimpleService_Docker/Scripts:/app/Scripts
-    links:
-      - config-server
-      - mysql
-      #- eureka
-    depends_on:
-      - config-server
-      - mysql
-      #- eureka
+  # simpleservice:
+    # image: simpleservice
+    # build:
+      # context: .
+      # dockerfile: src/SimpleService_Docker/Dockerfile
+    # #ports:
+      # #- "5101:80"
+    # #expose:
+      # #- "5101"
+    # # volumes:
+      # # - appbuild:/app
+      # # - ./src/SimpleService_Docker/Scripts:/app/Scripts
+    # links:
+      # - config-server
+      # - mysql
+      # #- eureka
+    # depends_on:
+      # - config-server
+      # - mysql
+      # #- eureka
 
   # simpleservice_kubernetes:
     # image: kikker-simpleservice-kubernetes
@@ -126,4 +126,11 @@ services:
   # elk:
     # driver: bridge
 
+
+
+  rating:
+    image: ${DOCKER_REGISTRY}rating
+    build:
+      context: .
+      dockerfile: src/Rating/Dockerfile
 

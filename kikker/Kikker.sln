@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeService.Tests", "src\P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTest.Tests", "src\WebTest.Tests\WebTest.Tests.csproj", "{EB847643-BC56-488A-B0A9-E15B61718A9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rating", "src\Rating\Rating.csproj", "{2FA60C84-6289-498C-B517-8151E4346CAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{EB847643-BC56-488A-B0A9-E15B61718A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB847643-BC56-488A-B0A9-E15B61718A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB847643-BC56-488A-B0A9-E15B61718A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA60C84-6289-498C-B517-8151E4346CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA60C84-6289-498C-B517-8151E4346CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA60C84-6289-498C-B517-8151E4346CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA60C84-6289-498C-B517-8151E4346CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

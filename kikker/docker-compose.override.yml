@@ -25,14 +25,21 @@ services:
       # - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       # - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
-  # simpleservice:
-    # environment:
-      # - ASPNETCORE_ENVIRONMENT=Development
-    # ports:
-      # - "80"
+   # simpleservice:
+     # environment:
+       # - ASPNETCORE_ENVIRONMENT=Development
+     # ports:
+       # - "80"
 
 
-  apigateway:
+  #apigateway:
+    #environment:
+      #- ASPNETCORE_ENVIRONMENT=Development
+    #ports:
+      #- "80"
+
+
+  rating:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:

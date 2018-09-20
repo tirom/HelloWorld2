@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rating
+  labels:
+    app: rating
+spec:
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: rating
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:  
+  name: rating-v1
+spec:
+  replicas: 1  
+  template:
+    metadata:      
+      labels:
+        app: rating
+        version: v1
+    spec:
+      containers:
+      - image: phongnhu/rating:0.1
+        name: rating
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
+status: {}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rating-v2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rating
+        version: v2
+    spec:
+      containers:
+      - name: rating
+        image: phongnhu/rating-v2:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

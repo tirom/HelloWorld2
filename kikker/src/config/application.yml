@@ -7,11 +7,11 @@ Logging:
     Default: Debug
     System: Information
     Microsoft: Information
-eureka:
-  instance:
-    homePageUrl: http://eureka:8761
-  client:
-    serviceUrl: http://eureka:8761/eureka/
+#eureka:
+  #instance:
+    #homePageUrl: http://eureka:8761
+  #client:
+    #serviceUrl: http://eureka:8761/eureka/
 mysql:
   client:
     server: mysql

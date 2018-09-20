@@ -19,7 +19,7 @@ spec:
         io.kompose.service: webtest
     spec:
       containers:
-      - image: webtest
+      - image: infodation.azurecr.io/phongnhu/webtest:latest
         name: webtest
         resources: {}
       restartPolicy: Always

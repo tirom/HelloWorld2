@@ -1,0 +1,10 @@
+#service-admin has full access to all services in the default namespace.
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRole
+metadata:
+  name: service-admin
+  namespace: default
+spec:
+  rules:
+  - services: ["*"]
+    methods: ["*"]

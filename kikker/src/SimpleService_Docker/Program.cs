@@ -14,7 +14,7 @@ namespace DownstreamService
 {
     public class Program
     {
-		private static string SERVICE_NAME = string.Empty; 
+		//private static string SERVICE_NAME = string.Empty; 
 		public static void Main(string[] args)
         {
 			Console.WriteLine(args.Length > 0 ? args[0] :"No argument");
@@ -26,8 +26,8 @@ namespace DownstreamService
 							.Build();
 
 			//InitLogger(config);
-			SERVICE_NAME = config.GetValue<string>("Spring:Application:Name") ?? string.Empty;
-			var serverName = config.GetValue<string>("machinename");
+			//SERVICE_NAME = config.GetValue<string>("Spring:Application:Name") ?? string.Empty;
+			//var serverName = config.GetValue<string>("machinename");
 			var port = config.GetValue<string>("Eureka:Instance:Port") ?? string.Empty;
 			if (MigrateDb(config) == 0)
 			{

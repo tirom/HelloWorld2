@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: inventory-v1
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inventory
+        version: v1
+    spec:
+      containers:
+      - name: inventory
+        image: {{.Values.image.imageRegistry}}/cs-inventory-service:{{.Values.image.dockerTag}}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: Hosts__BasePath
+          value: /inventory/
+        - name: Hosts__Externals__CurrentUri
+          value: {{ .Values.inventorySettings.Hosts__Externals__CurrentUri }}
+        - name: Hosts__Externals__Auth__Uri
+          value: {{ .Values.inventorySettings.Hosts__Externals__Auth__Uri }}
+        ports:
+        - containerPort: 5004
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5004
+          initialDelaySeconds: 10
+          periodSeconds: 5
+---

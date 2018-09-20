@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: kikker-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "localhost"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kikkergateway
+spec:
+  hosts:
+  - "localhost"
+  gateways:
+  - kikker-gateway
+  http:
+  - match:
+    - uri:
+        exact: /
+    - uri:
+        exact: /Home/About
+    - uri:
+        exact: /Home/Contact
+    route:
+    - destination:
+        host: webtest
+        port:
+          number: 80
+  # - match:
+    # - uri:
+        # exact: /rating
+    # - uri:
+        # prefix: /api
+    # route:
+    # - destination:
+        # host: rating
+        # port:
+          # number: 80

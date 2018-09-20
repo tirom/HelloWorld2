@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: rating-v1-75pc
+spec:
+  hosts:
+    - rating
+  http:
+  - route:
+    - destination:
+        host: rating
+        subset: v1
+      weight: 75
+    - destination:
+        host: rating
+        subset: v2
+      weight: 25
