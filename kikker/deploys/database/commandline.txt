@@ -1,0 +1,1 @@
+helm --tiller-namespace kikkerdev install --name kikkerdb stable/mariadb -f custom-config.yaml
