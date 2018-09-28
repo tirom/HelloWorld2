@@ -18,6 +18,7 @@ spec:
     metadata:
       labels:
         app: {{ template "rating.name" . }}
+        version: v1
         draft: {{ default "draft-app" .Values.draft }}
         release: {{ .Release.Name }}
       annotations:

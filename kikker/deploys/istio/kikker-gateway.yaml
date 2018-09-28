@@ -11,7 +11,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "localhost"
+    - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -19,7 +19,7 @@ metadata:
   name: kikkergateway
 spec:
   hosts:
-  - "localhost"
+  - "*"
   gateways:
   - kikker-gateway
   http:
@@ -35,13 +35,3 @@ spec:
         host: webtest
         port:
           number: 80
-  # - match:
-    # - uri:
-        # exact: /rating
-    # - uri:
-        # prefix: /api
-    # route:
-    # - destination:
-        # host: rating
-        # port:
-          # number: 80

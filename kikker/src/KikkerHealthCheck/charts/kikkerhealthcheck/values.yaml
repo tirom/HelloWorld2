@@ -1,0 +1,54 @@
+# Default values for kikkerhealthcheck.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+fullnameOverride: kikkerhealthcheck
+replicaCount: 1
+image:
+  repository: infodation.azurecr.io/phongnhu/kikker-healthcheck
+  tag: 0.9
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+  # Optionally specify an array of imagePullSecrets.
+  # Secrets must be manually created in the namespace.
+  # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+  #
+  # This uses credentials from secret "myRegistryKeySecretName".
+  # - name: myRegistryKeySecretName
+service:
+  type: ClusterIP
+  port: 80
+
+probes:
+  enabled: false
+
+ingress:
+  enabled: false
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  # hosts:
+  #   - chart-example.local
+  tls: []
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
+secrets: {}
+resources:
+  limits:
+    cpu: 1000m
+    memory: 256Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+MySql:
+  ConnectionString: Server=mysql;Database=kikker;Uid=user;Pwd=123;
+UrlsCheck: 
+  - http://kikkerfrontend:80/#/
+  - http://kikkerauth:8080/#/
+  - http://kikkercore:80/#/
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

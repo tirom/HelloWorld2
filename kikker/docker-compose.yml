@@ -129,7 +129,7 @@ services:
 
 
   rating:
-    image: ${DOCKER_REGISTRY}rating
+    image: phongnhu/rating:0.3
     build:
       context: .
       dockerfile: src/Rating/Dockerfile
