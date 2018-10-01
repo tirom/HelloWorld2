@@ -5,7 +5,7 @@ fullnameOverride: kikkerhealthcheck
 replicaCount: 1
 image:
   repository: infodation.azurecr.io/phongnhu/kikker-healthcheck
-  tag: 0.9
+  tag: 1.2
   pullPolicy: IfNotPresent
 imagePullSecrets: []
   # Optionally specify an array of imagePullSecrets.
@@ -45,8 +45,10 @@ MySql:
   ConnectionString: Server=mysql;Database=kikker;Uid=user;Pwd=123;
 UrlsCheck: 
   - http://kikkerfrontend:80/#/
-  - http://kikkerauth:8080/#/
-  - http://kikkercore:80/#/
+KikkerAuth:
+  Uri: http://kikkerauth:8080/api/authenticate
+  Username: admin
+  Password: admin
 nodeSelector: {}
 
 tolerations: []

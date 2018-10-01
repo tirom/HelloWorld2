@@ -8,18 +8,18 @@ using Microsoft.Extensions.Configuration;
 
 namespace AspNetCore2.Health.Api.QuickStart.HealthChecks
 {
-    public class DbHealthCheck : HealthCheck
+    public class CoreDbHealthCheck : HealthCheck
     {
 
 		IConfiguration _config;
-		public DbHealthCheck(IConfiguration config)
-            : base("Database Health Check") {
+		public CoreDbHealthCheck(IConfiguration config)
+            : base("kikkercore Database Health Check") {
 			_config = config;	
 		}
 
         protected override ValueTask<HealthCheckResult> CheckAsync(CancellationToken cancellationToken = default)
         {			
-			var connectionString = _config.GetValue<string>("MySql:ConnectionString") ?? string.Empty;		
+			var connectionString = _config.GetValue<string>("MySql:CoreConnectionString") ?? string.Empty;		
 			var upgrader =
 				DeployChanges.To
 					.MySqlDatabase(connectionString)

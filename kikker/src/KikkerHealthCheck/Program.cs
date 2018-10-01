@@ -28,12 +28,15 @@ namespace AspNetCore2.Health.Api.QuickStart
 			.ConfigureHealthWithDefaults(
 				builder =>
 				{
-					var urls = config.GetSection("UrlsCheck").Get<string[]>() ?? null;
-					Console.WriteLine($"Urls Check = {urls}");
-					foreach (var url in urls)
-					{
-						builder.HealthChecks.AddHttpGetCheck(url, new Uri(url), TimeSpan.FromSeconds(10));						
-					}
+					var kikkerFrontendUri = config.GetValue<string>("KikkerFrontendUri") ?? string.Empty;
+					builder.HealthChecks.AddHttpGetCheck("KikkerFrontend", new Uri(kikkerFrontendUri), TimeSpan.FromSeconds(10));
+
+					//var urls = config.GetSection("UrlsCheck").Get<string[]>() ?? null;
+					//Console.WriteLine($"Urls Check = {urls}");
+					//foreach (var url in urls)
+					//{
+					//	builder.HealthChecks.AddHttpGetCheck(url, new Uri(url), TimeSpan.FromSeconds(10));						
+					//}
 
 					//var urlsPing = config.GetSection("UrlsPing").Get<string[]>() ?? null;
 					//Console.WriteLine($"Urls Ping = {urlsPing}");

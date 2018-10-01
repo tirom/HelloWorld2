@@ -14,7 +14,7 @@ namespace AspNetCore2.Health.Api.QuickStart.HealthChecks
 		IConfiguration _config;
 		readonly IAuthService AuthService;
 		public KikkerAuthHealthCheck(IConfiguration config, IAuthService authService)
-			: base("KikkerAuth - authenticate(username,password) Check")
+			: base("KikkerAuth - 'admin' authentication check")
 		{
 			_config = config;
 			AuthService = authService;
