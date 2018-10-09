@@ -1,0 +1,6 @@
+service:
+  type: NodePort
+mongodbRootPassword: root12!@
+mongodbUsername: scheduler
+mongodbPassword: kikker1!
+mongodbDatabase: kikkersheduledtasks
