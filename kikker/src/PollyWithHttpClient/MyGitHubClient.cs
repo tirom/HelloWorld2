@@ -11,6 +11,8 @@ namespace PollyWithHttpClient
 		public MyGitHubClient(HttpClient client)
 		{
 			Client = client;
+			client.DefaultRequestHeaders.Add("X-Correlation-ID", Guid.NewGuid().ToString());
+			client.DefaultRequestHeaders.Add("X-API-KEY", "kikker-api");
 		}
 
 		public HttpClient Client { get; }

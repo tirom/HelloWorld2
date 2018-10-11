@@ -28,6 +28,7 @@ namespace PollyWithHttpClient.Handlers
 			var response = await base.SendAsync(request, cancellationToken);
 
 			_logger.LogInformation($"Finished request in {sw.ElapsedMilliseconds}ms");
+			Console.WriteLine($"Finished request in {sw.ElapsedMilliseconds}ms");
 
 			return response;
 		}

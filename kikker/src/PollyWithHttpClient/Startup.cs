@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Polly;
@@ -14,6 +16,7 @@ using Polly.CircuitBreaker;
 using Polly.Extensions.Http;
 using Polly.Timeout;
 using PollyWithHttpClient.Handlers;
+using PollyWithHttpClient.Logging;
 
 namespace PollyWithHttpClient
 {
@@ -30,6 +33,7 @@ namespace PollyWithHttpClient
         public void ConfigureServices(IServiceCollection services)
         {
 			var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(10)); // Timeout for an individual try
+			var longTimeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(30));
 			var noOpPolicy = Policy.NoOpAsync().AsAsyncPolicy<HttpResponseMessage>();
 
 			services.AddTransient<TimingHandler>();
@@ -43,8 +47,10 @@ namespace PollyWithHttpClient
 			.AddPolicyHandler(timeoutPolicy)
 			.AddHttpMessageHandler<TimingHandler>() // This handler is on the outside and executes first on the way out and last on the way in.
 			.AddHttpMessageHandler<ValidateHeaderHandler>(); // This handler is on the inside, closest to the request.
-			
 
+			//
+			//register a PolicyRegistry with DI
+			//
 			var registry = services.AddPolicyRegistry();
 			//registry.Add("defaultretrystrategy",
 			//	HttpPolicyExtensions.HandleTransientHttpError().WaitAndRetryAsync(
@@ -59,8 +65,10 @@ namespace PollyWithHttpClient
 				HttpPolicyExtensions.HandleTransientHttpError().CircuitBreakerAsync(
 					handledEventsAllowedBeforeBreaking: 3,
 					durationOfBreak: TimeSpan.FromSeconds(30)
-					));						
-			
+					));
+			registry.Add("regularTimeout", timeoutPolicy);
+			registry.Add("longTimeout", longTimeoutPolicy);
+
 			var retryPolicy = HttpPolicyExtensions
 				.HandleTransientHttpError()//Network failures (System.Net.Http.HttpRequestException),HTTP 5XX status codes (server errors),HTTP 408 status code (request timeout)
 				.Or<TimeoutRejectedException>() // thrown by Polly's TimeoutPolicy if the inner call times out
@@ -81,12 +89,15 @@ namespace PollyWithHttpClient
 			})
 			.AddPolicyHandler(request => request.Method == HttpMethod.Get ? retryPolicy : noOpPolicy)
 			//.AddPolicyHandlerFromRegistry("defaultretrystrategy")
-			.AddPolicyHandlerFromRegistry("defaultcircuitbreaker")	//already registered above		
+			.AddPolicyHandlerFromRegistry("defaultcircuitbreaker")  //already registered above		
 			//.AddTransientHttpErrorPolicy(builder => builder.CircuitBreakerAsync(
 			//	handledEventsAllowedBeforeBreaking: 3,
 			//	durationOfBreak: TimeSpan.FromSeconds(30)
 			//))			
-			.AddPolicyHandler(timeoutPolicy);
+			.AddPolicyHandlerFromRegistry("regularTimeout");
+			//.AddPolicyHandler(timeoutPolicy);
+
+			services.Replace(ServiceDescriptor.Singleton<IHttpMessageHandlerBuilderFilter, CustomLoggingFilter>());
 
 			services.AddMvc();
         }
@@ -98,8 +109,9 @@ namespace PollyWithHttpClient
             {
                 app.UseDeveloperExceptionPage();
             }
+			
 
-            app.UseMvc();
+			app.UseMvc();
         }
     }
 }
