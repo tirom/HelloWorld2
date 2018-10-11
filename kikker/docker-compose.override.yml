@@ -39,7 +39,21 @@ services:
       #- "80"
 
 
-  rating:
+  # rating:
+    # environment:
+      # - ASPNETCORE_ENVIRONMENT=Development
+    # ports:
+      # - "80"
+
+
+  kikker.healthcheck:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+
+  kikkerscheduledtasks:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:

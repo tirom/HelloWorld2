@@ -15,14 +15,6 @@ helm --tiller-namespace kikkerdev upgrade kikkber-db-mongo stable/mongodb -f cus
 helm --tiller-namespace kikkerdev upgrade fancy-gnat kikkerscheduledtasks -f clusterip.yaml
 
 helm --tiller-namespace kikkerdev install --name kikker-rabbitmq stable/rabbitmq -f rabbitmq-config.yaml
-have to manually edit it after deployment
-do kubectl edit sts MARIADBname
-sts = statefulset
-https://istio.io/docs/setup/kubernetes/sidecar-injection/
-Then see here
-at policy disabled
-spec:
-  template:
-    metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
+		
+15672 is manager
+5672 amqp port

@@ -1,8 +1,8 @@
 rabbitmq:
   username: kikker
   password: kikker1!
-  nodePort: 31679
-rbacEnabled: true
+  #nodePort: 31680
+#rbacEnabled: true
 serviceType: NodePort
 persistence:
   enabled: true

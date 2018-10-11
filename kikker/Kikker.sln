@@ -31,11 +31,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Receive", "src\RabbitMQ.Rec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewTask", "src\RabbitMQ.NewTask\NewTask.csproj", "{6FC1E44E-3385-4FCB-A2F6-9B9CB5951E92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "src\RabbitMQ.Worker\Worker.csproj", "{48BF50BF-ACAF-4941-8D04-2C0843A184BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Worker", "src\RabbitMQ.Worker\Worker.csproj", "{48BF50BF-ACAF-4941-8D04-2C0843A184BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitLog", "src\RabbitMQ.EmitLog\EmitLog.csproj", "{3BB3FD4C-BC40-431D-B3D3-C447115681BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmitLog", "src\RabbitMQ.EmitLog\EmitLog.csproj", "{3BB3FD4C-BC40-431D-B3D3-C447115681BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveLogs", "src\RabbitMQ.ReceiveLogs\ReceiveLogs.csproj", "{692E1170-F44C-40C7-AE2B-1B8F6D947731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiveLogs", "src\RabbitMQ.ReceiveLogs\ReceiveLogs.csproj", "{692E1170-F44C-40C7-AE2B-1B8F6D947731}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kikker.HealthCheck", "src\KikkerHealthCheck\Kikker.HealthCheck.csproj", "{D3220B6C-07D4-4F1C-AAB4-E557AFC2F4C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClient", "HttpClient", "{D1623084-1256-4622-8A56-D5F8AF6218EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PollyWithHttpClient", "src\PollyWithHttpClient\PollyWithHttpClient.csproj", "{274A5398-0193-4BF9-9526-5F315F62889B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleTasks", "ScheduleTasks", "{899DB9A5-9BE8-421E-A0E6-B2463370FFF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KikkerScheduledTasks", "src\KikkerScheduledTasks\KikkerScheduledTasks.csproj", "{74E4F120-A466-48CD-86C5-EEE16E4C2D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +113,18 @@ Global
 		{692E1170-F44C-40C7-AE2B-1B8F6D947731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692E1170-F44C-40C7-AE2B-1B8F6D947731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692E1170-F44C-40C7-AE2B-1B8F6D947731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3220B6C-07D4-4F1C-AAB4-E557AFC2F4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3220B6C-07D4-4F1C-AAB4-E557AFC2F4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3220B6C-07D4-4F1C-AAB4-E557AFC2F4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3220B6C-07D4-4F1C-AAB4-E557AFC2F4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274A5398-0193-4BF9-9526-5F315F62889B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274A5398-0193-4BF9-9526-5F315F62889B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274A5398-0193-4BF9-9526-5F315F62889B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274A5398-0193-4BF9-9526-5F315F62889B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E4F120-A466-48CD-86C5-EEE16E4C2D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E4F120-A466-48CD-86C5-EEE16E4C2D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E4F120-A466-48CD-86C5-EEE16E4C2D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E4F120-A466-48CD-86C5-EEE16E4C2D3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +138,8 @@ Global
 		{48BF50BF-ACAF-4941-8D04-2C0843A184BB} = {DE252BC0-FBB9-4A5F-A41D-C16082BEFDCD}
 		{3BB3FD4C-BC40-431D-B3D3-C447115681BC} = {DE252BC0-FBB9-4A5F-A41D-C16082BEFDCD}
 		{692E1170-F44C-40C7-AE2B-1B8F6D947731} = {DE252BC0-FBB9-4A5F-A41D-C16082BEFDCD}
+		{274A5398-0193-4BF9-9526-5F315F62889B} = {D1623084-1256-4622-8A56-D5F8AF6218EA}
+		{74E4F120-A466-48CD-86C5-EEE16E4C2D3E} = {899DB9A5-9BE8-421E-A0E6-B2463370FFF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E1A84422-C0C3-4F31-B774-2977B0D03CE2}
