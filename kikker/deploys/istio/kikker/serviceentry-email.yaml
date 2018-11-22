@@ -1,0 +1,11 @@
+kind: ServiceEntry
+metadata:
+name: gmailserver
+spec:
+hosts:
+- "smtp.gmail.com"
+ports:
+- number: 587
+name: tls
+protocol: TLS
+resolution: DNS
