@@ -20,7 +20,7 @@ externalDatabase:
   password: root12!@
 
   ## Database name
-  database: bitnami_suitecrm
+  database: kikker_suitecrm
 mariadb:
   enabled: false
   # db:
