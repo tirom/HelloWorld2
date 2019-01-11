@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: edsn-proxy-srventry
+spec:
+  hosts:
+  - 10.4.1.244
+  ports:
+  - number: 5000
+    name: http
+    protocol: HTTP
+  resolution: DNS
+  location: MESH_EXTERNAL
