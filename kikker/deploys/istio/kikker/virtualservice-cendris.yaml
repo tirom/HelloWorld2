@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kikker-cendris-rest
+spec:
+  hosts:
+  - "kikker.istio.infodation.vn"
+  gateways:
+  - kikker-gateway-vncluster
+  http:
+  - match:
+    - uri:
+        prefix: /Cendris
+    route:
+    - destination:
+        host: cendrisrestadapter
+        port:
+          number: 80
