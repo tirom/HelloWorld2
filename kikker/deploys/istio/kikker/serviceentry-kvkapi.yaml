@@ -1,0 +1,32 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: kvk
+spec:
+  hosts:
+  - api.kvk.nl
+  ports:
+  - number: 443
+    name: https
+    protocol: HTTPS
+  resolution: DNS
+  location: MESH_EXTERNAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kvk
+spec:
+  hosts:
+  - api.kvk.nl
+  tls:
+  - match:
+    - port: 443
+      sni_hosts:
+      - api.kvk.nl
+    route:
+    - destination:
+        host: api.kvk.nl
+        port:
+          number: 443
+      weight: 100
