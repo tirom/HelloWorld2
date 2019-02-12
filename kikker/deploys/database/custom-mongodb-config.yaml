@@ -1,5 +1,7 @@
 service:
   type: NodePort
+podAnnotations:
+  sidecar.istio.io/inject: "false"
 mongodbRootPassword: root12!@
 mongodbUsername: scheduler
 mongodbPassword: kikker1!

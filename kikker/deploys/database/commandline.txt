@@ -1,6 +1,6 @@
 helm --tiller-namespace kikkerdev install --name kikker-db-mariadb stable/mariadb -f custom-config.yaml
 
-helm --tiller-namespace kikkerdev install --name kikkber-db-mongodb stable/mongodb -f custom-mongodb-config.yaml
+helm --tiller-namespace kikkerdev install --name kikker-db-mongodb stable/mongodb -f custom-mongodb-config-nopassword.yaml
 
 == disable sidecar injection
 spec:
@@ -15,6 +15,8 @@ helm --tiller-namespace kikkerdev upgrade kikkber-db-mongo stable/mongodb -f cus
 helm --tiller-namespace kikkerdev upgrade fancy-gnat kikkerscheduledtasks -f clusterip.yaml
 
 helm --tiller-namespace kikkerdev install --name kikker-rabbitmq stable/rabbitmq -f rabbitmq-config.yaml
+
+
 		
 15672 is manager
 5672 amqp port

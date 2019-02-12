@@ -1,0 +1,12 @@
+service:
+  type: NodePort
+podAnnotations:
+  sidecar.istio.io/inject: "false"
+rootUser:
+  password: root12!@
+db:
+  user: auth
+  password: auth12!@
+  name: kikkerauth
+replication:
+  enabled: false
