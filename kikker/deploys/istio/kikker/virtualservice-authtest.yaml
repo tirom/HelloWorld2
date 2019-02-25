@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kikker-auth
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - kikker-gateway-vncluster
+  http:
+  - match:
+    - uri:
+        prefix: /auth/
+    route:
+    - destination:
+        host: kikkerauthtest
+        port:
+          number: 8080
