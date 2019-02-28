@@ -4,13 +4,13 @@ metadata:
   name: kikker-edsn-callproxy
 spec:
   hosts:
-  - "kikker.istio.infodation.vn"
+  - "*"
   gateways:
   - kikker-gateway-vncluster
   http:
   - match:
     - uri:
-        prefix: /api/meteringpoints
+        prefix: /edsn
     route:
     - destination:
         host: edsn-client-usage-sample
