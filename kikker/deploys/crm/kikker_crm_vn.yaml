@@ -1,8 +1,8 @@
-serviceType: NodePort
 podAnnotations:
   sidecar.istio.io/inject: "false"
 service:
   type: NodePort
+  nodePort: 30716
 suitecrmUsername: kikker_crm
 suitecrmPassword: INFO$4dation
 suitecrmEmail: phong.nhu@infodation.vn

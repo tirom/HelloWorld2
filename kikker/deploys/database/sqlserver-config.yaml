@@ -1,0 +1,19 @@
+service:
+  type: ClusterIP
+podAnnotations:
+  sidecar.istio.io/inject: "false"
+image:
+  tag: 2017-latest
+persistence:
+  enabled: true
+  dataAccessMode: ReadWriteOnce
+  dataSize: 1Gi
+  logAccessMode: ReadWriteOnce
+  logSize: 1Gi
+  backupAccessMode: ReadWriteOnce
+  backupLogSize: 1Gi
+  masterAccessMode: ReadWriteOnce
+  masterSize: 1Gi
+sapassword: INFO$4dation
+nodeSelector:
+  pv: "true"
