@@ -1,6 +1,8 @@
-helm --tiller-namespace kikkerdev install --name kikker-db-mariadb stable/mariadb -f custom-config.yaml
+helm --tiller-namespace kikkerdev install --name kikker-db-mariadb stable/mariadb -f custom-mariadb-config.yaml
 
 helm --tiller-namespace kikkerdev install --name kikker-db-mongodb stable/mongodb -f custom-mongodb-config-nopassword.yaml
+
+helm --tiller-namespace kikkerdev install --name kikker-db-mssql stable/mssql-linux --set acceptEula.value=Y --set edition.value=Developer -f sqlserver-config.yaml
 
 == disable sidecar injection
 spec:

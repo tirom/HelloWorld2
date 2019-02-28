@@ -1,5 +1,6 @@
 service:
   type: NodePort
+  nodePort: 30899
 podAnnotations:
   sidecar.istio.io/inject: "false"
 rootUser:
@@ -10,3 +11,5 @@ db:
   name: kikkerauth
 replication:
   enabled: false
+nodeSelector:
+  pv: "true"
