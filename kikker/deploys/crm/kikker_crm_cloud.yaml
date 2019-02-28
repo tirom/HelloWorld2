@@ -5,10 +5,15 @@ suitecrmUsername: kikker_crm
 suitecrmPassword: INFO$4dation
 suitecrmEmail: phong.nhu@infodation.vn
 suitecrmLastName: KikkerCRM
-suitecrmHost: 10.5.1.244
+suitecrmHost: democrm.kikker.nl
+suitecrmSmtpHost: ""
+suitecrmSmtpPort: ""
+suitecrmSmtpUser: ""
+suitecrmSmtpPassword: ""
+suitecrmSmtpProtocol: ""
 externalDatabase:
   ## Database host
-  host: kikker-db-mariadb
+  host: kikker-db-mariadb-mariadb
 
   ## Database host
   port: 3306

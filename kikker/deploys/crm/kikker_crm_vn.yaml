@@ -1,0 +1,41 @@
+serviceType: NodePort
+podAnnotations:
+  sidecar.istio.io/inject: "false"
+service:
+  type: NodePort
+suitecrmUsername: kikker_crm
+suitecrmPassword: INFO$4dation
+suitecrmEmail: phong.nhu@infodation.vn
+suitecrmLastName: KikkerCRM
+suitecrmHost: 10.5.1.244
+suitecrmSmtpHost: ""
+suitecrmSmtpPort: ""
+suitecrmSmtpUser: ""
+suitecrmSmtpPassword: ""
+suitecrmSmtpProtocol: ""
+externalDatabase:
+  ## Database host
+  host: kikker-db-mariadb
+
+  ## Database host
+  port: 3306
+
+  ## Database user
+  user: root
+
+  ## Database password
+  password: root12!@
+
+  ## Database name
+  database: kikker_suitecrm
+mariadb:
+  enabled: false
+  # db:
+  #   name: kikr_bitnami_suitecrm
+  #   user: kikr_bn_suitecrm
+  #   password: kikr12!@
+  # rootUser:
+  #   password: root12!@
+  # master:
+  #   annotations:
+  #     - sidecar.istio.io/inject: "false"

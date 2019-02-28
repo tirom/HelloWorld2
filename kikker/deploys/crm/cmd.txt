@@ -1,1 +1,0 @@
-helm --tiller-namespace kikkerdev install --name kikker-suitecrm stable/suitecrm -f kikker_crm.yaml

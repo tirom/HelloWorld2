@@ -1,0 +1,3 @@
+helm --tiller-namespace kikkerdev install --name kikker-suitecrm stable/suitecrm -f kikker_crm.yaml
+helm upgrade kikker-suitecrm stable/suitecrm -f kikker_crm_custom.yaml
+helm --tiller-namespace kikkerdev install --name kikker-crmdev stable/suitecrm -f kikker_crm_vn.yaml
